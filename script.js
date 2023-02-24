@@ -31,15 +31,17 @@ const sendAudioStreamToTextConverterApiAndConsoleLog = async () => {
       textAreaElement.value = transcript.toLowerCase().replace("google", "");
       //click on searconst ch button which is sibling element
       textAreaElement.nextElementSibling.click();
-      const wait5Seconds = () => {
-        return new Promise((resolve, reject) => {
-          setTimeout(() => {
-            resolve();
-          }, 5000);
-        });
-      };
-      const wait5SecondsPromise = wait5Seconds();
-      wait5SecondsPromise.then(() => {});
+
+      // read the text
+      // const wait5Seconds = () => {
+      //   return new Promise((resolve, reject) => {
+      //     setTimeout(() => {
+      //       resolve();
+      //     }, 5000);
+      //   });
+      // };
+      // const wait5SecondsPromise = wait5Seconds();
+      // wait5SecondsPromise.then(() => {});
     }
   };
 
