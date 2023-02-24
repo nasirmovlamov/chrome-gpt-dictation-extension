@@ -1,0 +1,23 @@
+{
+  "name": "Nasir's Dark Mode",
+  "version": "1.0.0",
+  "description": "personal dark mode",
+  "manifest_version": 3,
+  "author": "Nasir Movlamov",
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "Nasir's Dark Mode"
+  },
+  "permissions": ["tabs", "activeTab", "storage", "scripting"],
+  "host_permissions": ["http://*/*", "https://*/*", "*://*/*"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "all_frames": true,
+      "js": ["script.js"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
