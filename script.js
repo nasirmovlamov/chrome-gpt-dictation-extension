@@ -1,55 +1,4 @@
-const getMicAccess = () => {
-  return new Promise((resolve, reject) => {
-    navigator.mediaDevices
-      .getUserMedia({ audio: true })
-      .then((stream) => {
-        resolve(stream);
-      })
-      .catch((err) => {
-        reject(err);
-      });
-  });
-};
-
-const getAudioContext = () => {
-  return new Promise((resolve, reject) => {
-    const AudioContext = window.AudioContext || window.webkitAudioContext;
-    const audioContext = new AudioContext();
-    resolve(audioContext);
-  });
-};
-
-const getAudioStream = () => {
-  return new Promise((resolve, reject) => {
-    navigator.mediaDevices
-      .getUserMedia({ audio: true })
-      .then((stream) => {
-        resolve(stream);
-      })
-
-      .catch((err) => {
-        reject(err);
-      });
-  });
-};
-
 const sendAudioStreamToTextConverterApiAndConsoleLog = async () => {
-  // console.log("script started");
-  // const getUserAudioStream = () => {
-  //   return new Promise((resolve, reject) => {
-  //     navigator.mediaDevices
-  //       .getUserMedia({ audio: true })
-  //       .then((stream) => {
-  //         resolve(stream);
-  //       })
-  //       .catch((err) => {
-  //         reject(err);
-  //       });
-  //   });
-  // };
-  // const userAudioStream = await getUserAudioStream();
-  // console.log(userAudioStream);
-
   // Create a new instance of the SpeechRecognition object
   const recognition = new window.webkitSpeechRecognition();
 
@@ -104,14 +53,6 @@ document.addEventListener("DOMContentLoaded", function () {
   document
     .getElementById("activateGPTDictation")
     .addEventListener("click", function () {
-      // Get the current tab
-      //   chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-      //     // Execute a script in the current tab's context to change the background color
-      //     chrome.tabs.executeScript(tabs[0].id, {
-      //       code: "(" + removeAllImages + ")()",
-      //     });
-      //   });
-      // Send a message to the background script
       chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
         chrome.scripting.executeScript({
           target: { tabId: tabs[0].id },
