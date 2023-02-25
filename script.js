@@ -1,4 +1,4 @@
-const sendAudioStreamToTextConverterApiAndConsoleLog = async () => {
+const getTranscriptOfAudioStream = async () => {
   // Create a new instance of the SpeechRecognition object
   const recognition = new window.webkitSpeechRecognition();
 
@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
       chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
         chrome.scripting.executeScript({
           target: { tabId: tabs[0].id },
-          function: sendAudioStreamToTextConverterApiAndConsoleLog,
+          function: getTranscriptOfAudioStream,
         });
       });
     });
